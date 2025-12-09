@@ -1,0 +1,11 @@
+# Cloudflare Pages configuration for SvelteKit dashboard
+# This file is used for `wrangler pages deploy` command
+
+name = "grove-monitor"
+compatibility_date = "2024-12-09"
+
+# Pages build configuration
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+# Custom domain (configure in Cloudflare dashboard)
+# monitor.grove.place -> grove-monitor.pages.dev

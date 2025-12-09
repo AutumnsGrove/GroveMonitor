@@ -1,0 +1,10 @@
+# Example .dev.vars file for local development
+# Copy this to .dev.vars and fill in your values
+# NEVER commit .dev.vars to git!
+
+CF_API_TOKEN=your-cloudflare-api-token-here
+CF_ACCOUNT_ID=your-cloudflare-account-id-here
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxx
+ALERT_EMAIL_TO=alerts@yourdomain.com
+ALERT_ENABLED=true
+COLLECTION_INTERVAL_MINUTES=5
