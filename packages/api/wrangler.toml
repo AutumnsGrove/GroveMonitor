@@ -1,0 +1,22 @@
+name = "grove-monitor-api"
+main = "src/index.ts"
+compatibility_date = "2024-12-09"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "grove-monitor-db"
+database_id = "" # Fill this in after creating the D1 database (same as collector)
+
+# KV namespace binding for real-time metrics
+[[kv_namespaces]]
+binding = "MONITOR_KV"
+id = "" # Fill this in after creating the KV namespace (same as collector)
+
+# Environment variables
+[vars]
+# Optional: Protect dashboard with password (leave empty for public access)
+# DASHBOARD_PASSWORD = ""
+
+# CORS settings
+CORS_ALLOW_ORIGIN = "https://monitor.grove.place"

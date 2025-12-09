@@ -5,17 +5,28 @@
 ---
 
 ## Project Purpose
-[Fill in: What this project does - 1-2 sentences]
+GroveMonitor is a unified observability platform for monitoring all Grove Platform services. It provides real-time metrics, health checks, alerting, and cost tracking across 9+ Cloudflare Workers, D1 databases, R2 buckets, and KV namespaces through a single dashboard at monitor.grove.place.
 
 ## Tech Stack
-[Fill in: Technologies, frameworks, and languages used]
-- Language:
-- Framework:
-- Key Libraries:
-- Package Manager:
+- **Language**: TypeScript
+- **Frontend Framework**: SvelteKit with Cloudflare Pages adapter
+- **Backend**: Cloudflare Workers (Cron + API)
+- **Database**: Cloudflare D1 (SQLite)
+- **Storage**: Cloudflare KV (real-time metrics), R2 (snapshots)
+- **Key Libraries**: Chart.js (visualizations), date-fns (date utilities), TailwindCSS (styling)
+- **Package Manager**: pnpm (monorepo workspace)
 
 ## Architecture Notes
-[Fill in: Key architectural decisions, patterns, or structure]
+**Monorepo Structure**: Three packages (collector, api, dashboard) sharing common types
+- `packages/collector/` - Cron worker that runs every 5 minutes to collect metrics from Cloudflare APIs and perform health checks
+- `packages/api/` - API worker serving dashboard data from D1 and KV
+- `packages/dashboard/` - SvelteKit UI deployed to Cloudflare Pages
+- `shared/` - Shared TypeScript types and constants
+- `migrations/` - D1 database schema migrations
+
+**Data Flow**: Collector → Cloudflare APIs → D1 (time-series) + KV (real-time) → API Worker → Dashboard
+
+**Alerting**: Email alerts via Resend API when thresholds are breached (error rates, latency, health checks, database size, costs)
 
 ---
 

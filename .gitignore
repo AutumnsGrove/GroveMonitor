@@ -1,5 +1,76 @@
+# Secrets and sensitive data
 secrets.json
-*.log
-__pycache__/
+.dev.vars
+*.env
+*.pem
+*.key
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+.output/
+.vercel/
+.netlify/
+.svelte-kit/
+.wrangler/
+
+# TypeScript
+*.tsbuildinfo
+*.js.map
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Testing
+coverage/
+*.lcov
+.nyc_output/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Python (legacy from template)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local Claude agents (if not using user-wide install)
 .claude/
+
+# Wrangler local state
+.wrangler/
+wrangler.toml.backup
+
+# Backup files
+*.backup
+.baseproject-backup-*/

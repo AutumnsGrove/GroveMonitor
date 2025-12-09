@@ -1,0 +1,34 @@
+name = "grove-monitor-collector"
+main = "src/index.ts"
+compatibility_date = "2024-12-09"
+
+# Cron trigger - runs every 5 minutes
+[triggers]
+crons = ["*/5 * * * *"]
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "grove-monitor-db"
+database_id = "" # Fill this in after creating the D1 database
+
+# KV namespace binding for real-time metrics
+[[kv_namespaces]]
+binding = "MONITOR_KV"
+id = "" # Fill this in after creating the KV namespace
+
+# R2 bucket binding for snapshots (optional)
+[[r2_buckets]]
+binding = "SNAPSHOTS"
+bucket_name = "grove-monitor-snapshots"
+
+# Environment variables
+[vars]
+COLLECTION_INTERVAL_MINUTES = "5"
+ALERT_ENABLED = "true"
+
+# Secrets (set via: wrangler secret put <NAME>)
+# - CF_API_TOKEN (Cloudflare API token with Analytics:Read, D1:Read, R2:Read, Workers:Read)
+# - CF_ACCOUNT_ID (Your Cloudflare account ID)
+# - RESEND_API_KEY (Resend API key for email alerts)
+# - ALERT_EMAIL_TO (Email address to send alerts to)
